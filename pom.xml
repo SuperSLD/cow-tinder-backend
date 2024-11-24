@@ -10,9 +10,9 @@
   <groupId>online.jutter</groupId>
   <artifactId>kztlibrary</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>kzt_library</name>
+  <name>cowtinder</name>
   <packaging>war</packaging>
-  <description>kzt_library</description>
+  <description>cowtinder</description>
   <properties>
     <java.version>11</java.version>
     <kotlin.version>1.6.0</kotlin.version>
