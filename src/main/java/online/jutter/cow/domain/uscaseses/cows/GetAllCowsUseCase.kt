@@ -4,5 +4,5 @@ import online.jutter.cow.data.db.repositories.CowsRepository
 
 class GetAllCowsUseCase {
 
-    operator fun invoke() = CowsRepository.getAll()
+    operator fun invoke() = CowsRepository.getAll().subList(0, 200)
 }
