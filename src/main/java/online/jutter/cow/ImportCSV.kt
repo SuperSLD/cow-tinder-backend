@@ -7,24 +7,30 @@ import java.net.http.HttpRequest
 import java.net.http.HttpResponse
 
 fun main() {
+    var i = 0
     csvReader().open("data.csv") {
         readAllAsSequence().forEach { row ->
-            sendPost(bodyContent = "{\n" +
-                    "    \"id\": \"${row[0]}\",\n" +
-                    "    \"sex\": \"${row[1]}\",\n" +
-                    "    \"breed\": \"${row[2]}\",\n" +
-                    "    \"birthDate\": \"${row[3]}\",\n" +
-                    "    \"papa\": \"${row[4]}\",\n" +
-                    "    \"mama\": \"${row[5]}\",\n" +
-                    "    \"milkVolume\": \"${row[6]}\",\n" +
-                    "    \"meatVolume\": \"${row[7]}\",\n" +
-                    "    \"inbreeding\": \"${row[8]}\",\n" +
-                    "    \"meatIncrement\": \"${row[9]}\",\n" +
-                    "    \"health\": \"${row[10]}\",\n" +
-                    "    \"fertility\": \"${row[11]}\",\n" +
-                    "    \"geneticValue\": \"${row[12]}\"\n" +
-                    "}")
-            println(row)
+            if (i > 4270) {
+                sendPost(
+                    bodyContent = "{\n" +
+                            "    \"id\": \"${row[0]}\",\n" +
+                            "    \"sex\": \"${row[1]}\",\n" +
+                            "    \"breed\": \"${row[2]}\",\n" +
+                            "    \"birthDate\": \"${row[3]}\",\n" +
+                            "    \"papa\": \"${row[4]}\",\n" +
+                            "    \"mama\": \"${row[5]}\",\n" +
+                            "    \"milkVolume\": \"${row[6]}\",\n" +
+                            "    \"meatVolume\": \"${row[7]}\",\n" +
+                            "    \"inbreeding\": \"${row[8]}\",\n" +
+                            "    \"meatIncrement\": \"${row[9]}\",\n" +
+                            "    \"health\": \"${row[10]}\",\n" +
+                            "    \"fertility\": \"${row[11]}\",\n" +
+                            "    \"geneticValue\": \"${row[12]}\"\n" +
+                            "}"
+                )
+                println(row)
+            }
+            i++
         }
     }
 }
