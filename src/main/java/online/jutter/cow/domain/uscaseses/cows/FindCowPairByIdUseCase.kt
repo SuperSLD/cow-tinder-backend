@@ -46,6 +46,7 @@ class FindCowPairByIdUseCase {
                         papa = jsonObject["Родитель_папа"].toString()
                         mama = jsonObject["Родитель_мама"].toString()
                         milkVolume = jsonObject["Удой л/день"].toString()
+                        if (milkVolume == "null") milkVolume = ""
                         meatVolume = jsonObject["Упитанность"].toString()
                         inbreeding = jsonObject["Коэффициент инбридинга (F)"].toString()
                         meatIncrement = jsonObject["Прирост веса кг/день"].toString()
@@ -53,13 +54,15 @@ class FindCowPairByIdUseCase {
                         fertility = jsonObject["Фертильность (%)"].toString()
                         geneticValue = jsonObject["Генетическая ценность (баллы)"].toString()
                     },
-                    waitedCowData = WaitedCowData(0f, 0f, 0f, 0f)
+                    waitedCowData = WaitedCowData(
+                        milk = jsonObject["Удой л/день потомка"].toString().toFloat(),
+                        weight = jsonObject["Упитанность потомка"].toString().toFloat(),
+                        health = jsonObject["Здоровье (1-10) потомка"].toString().toFloat(),
+                        fertility = jsonObject["Фертильность (%) потомка"].toString().toFloat(),
+                    )
                 )
             )
         }
-
-
-        //?target_cow_id=1&category=%D0%9F%D1%80%D0%B8%D1%80%D0%BE%D1%81%D1%82%20%D0%B2%D0%B5%D1%81%D0%B0%20%D0%BA%D0%B3%2F%D0%B4%D0%B5%D0%BD%D1%8C&min_growth=0&max_growth=100&min_udo=0&max_udo=100&min_health=1&max_health=10
 
         return response
     }
