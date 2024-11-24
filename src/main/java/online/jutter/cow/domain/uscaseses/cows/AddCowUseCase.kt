@@ -11,8 +11,8 @@ class AddCowUseCase {
         addCowRequest: AddCowRequest,
     ) = CowsRepository.executeTransaction {
 
-        val savedCow = getById(addCowRequest.id)
-        val cowEnt = CowEntity()
+        var cowEnt = getById(addCowRequest.id)
+        if (cowEnt == null) cowEnt = CowEntity()
 
         cowEnt.id = addCowRequest.id
         cowEnt.mama = addCowRequest.mama
@@ -28,10 +28,6 @@ class AddCowUseCase {
         cowEnt.inbreeding = addCowRequest.inbreeding
         cowEnt.milkVolume = addCowRequest.milkVolume
 
-        if (savedCow != null) {
-            update(cowEnt)
-        } else {
-            persist(cowEnt)
-        }
+        persist(cowEnt)
     }
 }
