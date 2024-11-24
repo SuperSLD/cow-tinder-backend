@@ -64,6 +64,6 @@ class CowController {
         @RequestBody cowPairData: CowPairData,
     ) = createWrapperResponse {
         TokenManager.verifyToken(token)
-        findCowPairByIdUseCase(cowPairData.cowTag, cowPairData.maximisationParam)
+        findCowPairByIdUseCase(cowPairData)
     }
 }
