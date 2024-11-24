@@ -11,6 +11,6 @@ class GetAllCowsUseCase {
         for (i in 0 .. 200) {
             response.add(allCows.random())
         }
-        return response
+        return allCows//response
     }
 }
