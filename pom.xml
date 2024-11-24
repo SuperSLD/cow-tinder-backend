@@ -8,7 +8,7 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>online.jutter</groupId>
-  <artifactId>kztlibrary</artifactId>
+  <artifactId>cowtinder</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>cowtinder</name>
   <packaging>war</packaging>
