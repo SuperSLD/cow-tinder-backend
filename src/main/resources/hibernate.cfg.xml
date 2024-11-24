@@ -19,6 +19,8 @@
 
         <!-- Entity Mapping -->
         <mapping class="online.jutter.cow.data.db.ent.UserEntity"/>
+        <mapping class="online.jutter.cow.data.db.ent.CowEntity"/>
+
 
         <!--        <mapping class="online.jutter.cow.data.db.ent.UserEntity"/>-->
 <!--        <mapping class="online.jutter.cow.data.db.ent.UserAchivmentEntity"/>-->
