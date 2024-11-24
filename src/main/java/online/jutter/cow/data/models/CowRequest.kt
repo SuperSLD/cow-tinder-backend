@@ -1,6 +1,6 @@
 package online.jutter.cow.data.models
 
-data class AddCowRequest(
+data class CowRequest(
     val id: String,
     val sex: String,
     val breed: String,

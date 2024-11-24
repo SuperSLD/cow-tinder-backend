@@ -10,7 +10,7 @@ fun main() {
     var i = 0
     csvReader().open("data.csv") {
         readAllAsSequence().forEach { row ->
-            if (i > 4270) {
+            if (i > 6130) {
                 sendPost(
                     bodyContent = "{\n" +
                             "    \"id\": \"${row[0]}\",\n" +

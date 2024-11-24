@@ -1,14 +1,13 @@
 package online.jutter.cow.net
 
+import com.example.app_domain.models.cow.CowPairData
 import online.jutter.cow.common.TokenManager
-import online.jutter.cow.common.ext.createEmptyWrapperResponse
 import online.jutter.cow.common.ext.createWrapperResponse
-import online.jutter.cow.data.models.AddCowRequest
-import online.jutter.cow.data.models.auth.LoginRequest
+import online.jutter.cow.data.models.CowRequest
 import online.jutter.cow.domain.uscaseses.cows.AddCowUseCase
 import online.jutter.cow.domain.uscaseses.cows.FindCowByIdUseCase
+import online.jutter.cow.domain.uscaseses.cows.FindCowPairByIdUseCase
 import online.jutter.cow.domain.uscaseses.cows.GetAllCowsUseCase
-import online.jutter.cow.domain.uscaseses.user.UserLoginUseCase
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -21,6 +20,7 @@ class CowController {
     private val findCowByIdUseCase = FindCowByIdUseCase()
     private val getAllCowsUseCase = GetAllCowsUseCase()
     private val addCowsUseCase = AddCowUseCase()
+    private val findCowPairByIdUseCase = FindCowPairByIdUseCase()
 
     @RequestMapping(
         value = ["find/{id}"],
@@ -50,8 +50,20 @@ class CowController {
         method = [RequestMethod.POST]
     )
     fun addCow(
-        @RequestBody addCowRequest: AddCowRequest,
+        @RequestBody addCowRequest: CowRequest,
     ) = createWrapperResponse {
         addCowsUseCase(addCowRequest)
+    }
+
+    @RequestMapping(
+        value = ["findpair"],
+        method = [RequestMethod.POST]
+    )
+    fun findPair(
+        @RequestHeader("Authorization") token: String,
+        @RequestBody cowPairData: CowPairData,
+    ) = createWrapperResponse {
+        TokenManager.verifyToken(token)
+        findCowPairByIdUseCase(cowPairData.cowTag, cowPairData.maximisationParam)
     }
 }

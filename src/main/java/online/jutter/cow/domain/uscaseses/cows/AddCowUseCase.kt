@@ -3,12 +3,12 @@ package online.jutter.cow.domain.uscaseses.cows
 import online.jutter.cow.data.db.ent.CowEntity
 import online.jutter.cow.data.db.repositories.CowsRepository
 import online.jutter.cow.data.db.repositories.CowsRepository.getById
-import online.jutter.cow.data.models.AddCowRequest
+import online.jutter.cow.data.models.CowRequest
 
 class AddCowUseCase {
 
     operator fun invoke(
-        addCowRequest: AddCowRequest,
+        addCowRequest: CowRequest,
     ) = CowsRepository.executeTransaction {
 
         var cowEnt = getById(addCowRequest.id)
