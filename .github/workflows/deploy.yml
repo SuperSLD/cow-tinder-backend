@@ -22,7 +22,7 @@ jobs:
       - name: Set global env
         id: global_env
         run: |
-          echo "::set-output name=ARTIFACT_NAME::kztlibrary"
+          echo "::set-output name=ARTIFACT_NAME::cowtinder"
           
 #     Upload artifact
       - name: Upload artifact
