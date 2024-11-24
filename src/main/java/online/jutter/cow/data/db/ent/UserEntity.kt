@@ -9,16 +9,8 @@ import javax.persistence.Table
 @Table(name = "users")
 class UserEntity {
     @Id
-    var id: String = ""
     var login: String = ""
+    var pin: String = ""
     @Column(name = "user_name")
     var name: String = ""
-    @Column(name = "user_lastname")
-    var lastname: String = ""
-    @Column(name = "user_midname")
-    var midname: String = ""
-    @Column(name = "company_role")
-    var companyRole: String? = null
-    var coins: Int = 0
-    var avatar: String? = null
 }

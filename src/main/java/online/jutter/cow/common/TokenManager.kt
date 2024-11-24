@@ -41,13 +41,13 @@ object TokenManager {
         val tokenData = HashMap<String, Any>()
 
         tokenData["login"] = user.login
-        tokenData["id"] = user.id
+        tokenData["id"] = user.login
         tokenData["exp"] = date.time
         tokenData["digest"] = user.login.digestSHA256()
 
         return Jwts.builder()
                 .setSubject(user.login)
-                .setId(user.id)
+                .setId(user.login)
                 .setExpiration(date)
                 .setClaims(tokenData)
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
@@ -63,7 +63,7 @@ object TokenManager {
             val clearedToken = token.replace(PREFIX.toRegex(), "")
             try {
                 val user = UsersRepository.getByLogin(getLoginFromToken(clearedToken))
-                user?.id == getIdFromToken(token)
+                user?.login == getIdFromToken(token)
             } catch (ex: Exception) {
                 if (ex is IllegalArgumentException) throw ex
                 false
