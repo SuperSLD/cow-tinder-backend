@@ -1,4 +1,4 @@
-package com.example.app_domain.models.cow
+package online.jutter.cow.data.models
 
 data class CowPairData(
     val cowTag: String,

@@ -1,6 +1,6 @@
 package online.jutter.cow.net
 
-import com.example.app_domain.models.cow.CowPairData
+import online.jutter.cow.data.models.CowPairData
 import online.jutter.cow.common.TokenManager
 import online.jutter.cow.common.ext.createWrapperResponse
 import online.jutter.cow.data.models.CowRequest
